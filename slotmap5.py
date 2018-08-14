@@ -11,6 +11,7 @@
 # fixed issue with missing data in  "sysconfig.json" file
 # pwh - 05/15/2018 changed to use name "disk.previouslyDiscovered"
 #   rather than description "List of previously discovered disks"
+# pwh - 08/14/2018 fixed typo of "bayid" to "bayId" when slot is empty
 #
 import json
 
@@ -65,7 +66,7 @@ if valid:
             print "Enclosure: (no label)", encl['chassis'][0]['vendorId'], encl['chassis'][0]['productId'], encl['chassisId'] 
             for bay in encl['bays']:
                 if bay['empty']:
-                    print "\t%2d" % bay['bayid']
+                    print "\t%2d" % bay['bayId']
                 else:
                     rawCapacity = diskDetails[bay['devname']]['capacity']
                     capacityGiB = int(rawCapacity/(1024 * 1024 * 1024))
