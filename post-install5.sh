@@ -61,9 +61,12 @@ echo "set nfs:nfs4_bsize = 131072" >> /etc/system
 
 #
 # set scan_direct
+# for NEW DEPLOYMENTS this should not be necessary
+# but will keep it here commented out so we know about its relevance
+# normally this is set in /etc/system.d/zfs
 #
-echo "setting zfs_scan_direct"
-echo "" >> /etc/system
-echo "* set zfs_scan_direct" >> /etc/system
-echo "* `date`" >> /etc/system
-echo "set zfs:zfs_scan_direct = 1" >> /etc/system
+#echo "setting zfs_scan_direct"
+#echo "" >> /etc/system
+#echo "* set zfs_scan_direct" >> /etc/system
+#echo "* `date`" >> /etc/system
+#echo "set zfs:zfs_scan_direct = 1" >> /etc/system
