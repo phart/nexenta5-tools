@@ -36,6 +36,9 @@ ipadm set-prop -p _wscale_always=1 tcp
 ipadm set-prop -p _tstamp_if_wscale=1 tcp
 ipadm set-prop -p _cwnd_max=8388608 tcp
 
+ipadm set-prop -p _conn_req_max_q0=10000 tcp
+ipadm set-prop -p _conn_req_max_q=10000 tcp
+
 #
 # make sure apple extensions are set up correctly
 #
@@ -45,3 +48,22 @@ echo "* Adjust Apple Extensions" >> /etc/system
 echo "* `date`" >> /etc/system
 echo "set smbsrv:smb2_aapl_extensions=1" >> /etc/system
 echo "set smbsrv:smb2_aapl_server_caps=1" >> /etc/system
+
+#
+# adjust NFS buffer sizes
+#
+echo "adjusting NFS buffer sizes..."
+echo "" >> /etc/system
+echo "* Adjust NFS Buffer Sizes" >> /etc/system
+echo "* `date`" >> /etc/system
+echo "set nfs:nfs3_bsize = 131072" >> /etc/system
+echo "set nfs:nfs4_bsize = 131072" >> /etc/system
+
+#
+# set scan_direct
+#
+echo "setting zfs_scan_direct"
+echo "" >> /etc/system
+echo "* set zfs_scan_direct" >> /etc/system
+echo "* `date`" >> /etc/system
+echo "set zfs:zfs_scan_direct = 1" >> /etc/system
