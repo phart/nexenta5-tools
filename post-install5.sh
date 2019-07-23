@@ -70,3 +70,9 @@ echo "set nfs:nfs4_bsize = 131072" >> /etc/system
 #echo "* set zfs_scan_direct" >> /etc/system
 #echo "* `date`" >> /etc/system
 #echo "set zfs:zfs_scan_direct = 1" >> /etc/system
+
+#
+# stop letting mouse move the cursor
+#
+echo "unlinking vi from the mouse"
+echo "set mouse=" >> /root/.vimrc
