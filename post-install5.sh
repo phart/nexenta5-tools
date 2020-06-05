@@ -75,4 +75,4 @@ echo "set nfs:nfs4_bsize = 131072" >> /etc/system
 # stop letting mouse move the cursor
 #
 echo "unlinking vi from the mouse"
-echo "set mouse=" >> /root/.vimrc
+echo "set mouse=r" >> /root/.vimrc
