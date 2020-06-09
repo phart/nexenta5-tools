@@ -14,6 +14,20 @@
 #
 
 #
+# checkpoint first
+#
+echo "saving system checkpoint..."
+software list | grep 'before-post-install-script' > /dev/null 
+CHECK=$?
+if [ $CHECK -eq 1 ]; then
+    software checkpoint before-post-install-script
+    echo "checkpoint done..."
+else
+    echo 'checkpoint already exists, exiting....  verify that changes aren't already made'
+    exit 1
+fi
+
+#
 # Enable NMI
 #
 echo "Enabling NMI..."
