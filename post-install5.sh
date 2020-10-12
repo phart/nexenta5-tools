@@ -23,7 +23,7 @@ if [ $CHECK -eq 1 ]; then
     software checkpoint before-post-install-script
     echo "checkpoint done..."
 else
-    echo 'checkpoint already exists, exiting....  verify that changes aren\'t already made'
+    echo 'checkpoint already exists, exiting....  verify that changes arent already made'
     exit 1
 fi
 
