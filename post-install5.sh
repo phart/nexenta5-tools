@@ -74,6 +74,23 @@ echo "set nfs:nfs3_bsize = 131072" >> /etc/system
 echo "set nfs:nfs4_bsize = 131072" >> /etc/system
 
 #
+# adjust other NFS tunables
+#
+echo "adjusting NFS queues and threads ..."
+sharectl set -p servers=256 nfs
+sharectl set -p lockd_servers=256 nfs
+sharectl set -p listen_backlog=1024 nfs
+sharectl set -p lockd_listen_backlog=1024 nfs
+sharectl set -p mountd_listen_backlog=256 nfs
+sharectl set -p mountd_max_threads=64 nfs
+svccfg -s rpc/bind setprop config/listen_backlog=1024
+svcadm refresh rpc/bind
+svcadm restart rpc/bind
+svcadm restart fmd
+svcadm restart rmvolmgr
+svcadm restart nfs/server
+
+#
 # set scan_direct
 # for NEW DEPLOYMENTS this should not be necessary
 # but will keep it here commented out so we know about its relevance
